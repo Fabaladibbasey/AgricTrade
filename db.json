@@ -1,0 +1,53 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "img": "https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Carrot",
+      "price": 70,
+      "inCard": true
+    },
+    {
+      "id": 2,
+      "img": "https://images.pexels.com/photos/5273044/pexels-photo-5273044.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "name": "Fresh Red",
+      "price": 70,
+      "inCard": false
+    },
+    {
+      "id": 3,
+      "img": "https://images.pexels.com/photos/5946102/pexels-photo-5946102.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "name": "Banana",
+      "price": 50,
+      "inCard": false
+    },
+    {
+      "id": 4,
+      "img": "https://images.pexels.com/photos/4916114/pexels-photo-4916114.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "name": "Apple",
+      "price": 70,
+      "inCard": false
+    },
+    {
+      "id": 5,
+      "img": "https://images.pexels.com/photos/4021695/pexels-photo-4021695.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "name": "Healthy Package",
+      "price": 160,
+      "inCard": true
+    },
+    {
+      "id": 6,
+      "img": "https://images.pexels.com/photos/4202323/pexels-photo-4202323.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Fresh Green",
+      "price": 110,
+      "inCard": false
+    },
+    {
+      "id": 7,
+      "img": "https://images.pexels.com/photos/4197445/pexels-photo-4197445.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Onion",
+      "price": 20,
+      "inCard": false
+    }
+  ]
+}

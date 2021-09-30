@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Category.css'
 const Category = ({products, onAddToCard}) => {
   return (
@@ -13,19 +14,20 @@ const Category = ({products, onAddToCard}) => {
         return <ProdutCard key={product.id} product={product} onAddToCard={onAddToCard}/>
       })}
       </div>
+      <Link to="/products" className="btn">More Products</Link>
     </section>
   )
 }
 
 export default Category
 
-function ProdutCard({product, onAddToCard}) {
+export function ProdutCard({product, onAddToCard}) {
   const {name, img, id, price, inCard} = product
   return (
     <div className='swiper-slide box'>
       <img
         src={img}
-        alt={`This is an imgage of ${name}`}
+        alt={`This is an img of ${name}`}
       />
       <h3>{name}</h3>
       <div className='price'> Dalasis {price} </div>

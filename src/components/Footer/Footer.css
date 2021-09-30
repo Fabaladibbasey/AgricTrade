@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
   gap: 2.5rem;
-  margin-left: 3rem;
+  padding: 0 3rem;
 }
 
 .footer .box-container .box h3 {

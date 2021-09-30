@@ -2,26 +2,26 @@ import { Link } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import './Header.css'
 
-function Header({onToggle, onActive, products, onAddToCard, total}) {
+function Header({onToggle, onActive, cardProducts, onAddToCard, total}) {
   return (
-    <header className='header'>
+    <header className='header' id="home">
       <Link to='/' className='logo'>
         {' '}
         <i className='fab fa-pagelines'></i> AgricTech{' '}
       </Link>
       <Navbar onToggle = {onToggle} onActive={onActive}/>
-      <ShoppingCard onActive={onActive} products={products} onAddToCard={onAddToCard} total={total}/>
+      <ShoppingCard onActive={onActive} cardProducts={cardProducts} onAddToCard={onAddToCard} total={total}/>
     </header>
   )
 }
 
 export default Header
 
-function ShoppingCard({onActive, products, onAddToCard, total}) {
+function ShoppingCard({onActive, cardProducts, onAddToCard, total}) {
  let classes = 'shopping-cart'
   return (
     <div className={onActive['cart-btn'] ? `${classes} active` : classes }>
-     {products.map(product => product.inCard && <ShoppingProduct key={product.id} product={product} onAddToCard={onAddToCard}/>)}
+     {cardProducts.map(product => <ShoppingProduct key={product.id} product={product} onAddToCard={onAddToCard}/>)}
       <div className='total'>total: D{total} </div>
       <a href='#' className='btn'>
         checkout

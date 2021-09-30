@@ -8,10 +8,11 @@ const Navbar = ({onToggle, onActive}) => {
     <>
       <nav className={onActive['menu-btn'] ? `${classes} active` : classes}  >
         <Link to='/' className="a">Home</Link>
-        <Link to='/produts' className="a">Products</Link>
+        <Link to='/products' className="a">Products</Link>
         <Link to='/invest' className="a">Invest</Link>
         <Link to='/about' className="a">About</Link>
       </nav>
+      
       <div className='icons'>
         <div className='fas fa-bars' id='menu-btn' onClick={onToggle}></div>
         <div className='fas fa-shopping-cart' id='cart-btn' onClick={onToggle}></div>
