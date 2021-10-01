@@ -29,23 +29,28 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('http://localhost:5000/products')
+      //url json-server
+      // const url = 'http://localhost:5000/products';
+      //firebase url
+      const url =
+        'https://agrictech-997c8-default-rtdb.firebaseio.com/products.json'
+      const res = await fetch(url)
       const data = await res.json()
-      setProducts(data)
-      setRandomProducts(getRandomProducts(data))
+      let newData = []
+      for (let key in data) {
+        newData.push(data[key])
+      }
+      setProducts(newData)
+      setRandomProducts(getRandomProducts(newData))
     }
     fetchData()
   }, [])
 
   const handleAddToCard = (id) => {
-    // setNavToggle({
-    //   ...navToggle,
-    //   'cart-btn': true,
-    // })
     const updProducts = products.map((product) => {
       if (product.id === id) {
         const prod = { ...product, inCard: !product.inCard }
-        updateData(id, prod)
+        // updateData(id, prod)
         if (filteredProducts.includes(product)) {
           updateFilteredProduct(id, prod)
         }
@@ -78,6 +83,8 @@ function App() {
     })
     setRandomProducts(newRandomProducts)
   }
+
+  //uncomment this function call in handleAddToCard function when dealing with json-server
 
   const updateData = async (id, product) => {
     await fetch(`http://localhost:5000/products/${id}`, {
@@ -112,7 +119,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('use effect')
     window.addEventListener('scroll', handleToggle)
     // window.addEventListener('click', handleToggle)
     return () => {
@@ -152,7 +158,7 @@ function App() {
 
   const searchByName = (name) => {
     return products.filter((product) =>
-      product.name.toLowerCase().includes(name)
+      product.name.toLowerCase().includes(name.toLowerCase())
     )
   }
 

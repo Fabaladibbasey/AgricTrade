@@ -1,6 +1,6 @@
 import './Products.css'
 // import '../Category/Category.css'
-import { ProductCard as ProductCard } from '../Category/Category'
+import { ProductCard } from '../Category/Category'
 
 function Products({ products, onAddToCard, onSearch, search }) {
   return (
