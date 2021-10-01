@@ -1,6 +1,6 @@
 import './Products.css'
 // import '../Category/Category.css'
-import { ProdutCard } from '../Category/Category'
+import { ProductCard as ProductCard } from '../Category/Category'
 
 function Products({ products, onAddToCard, onSearch, search }) {
   return (
@@ -17,7 +17,7 @@ function Products({ products, onAddToCard, onSearch, search }) {
       <div className='swiper product-slider'>
         {products.map((product) => {
           return (
-            <ProdutCard
+            <ProductCard
               key={product.id}
               product={product}
               onAddToCard={onAddToCard}

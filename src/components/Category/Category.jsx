@@ -11,7 +11,7 @@ const Category = ({products, onAddToCard}) => {
 
       <div className='swiper product-slider'>
       {products.map(product => {
-        return <ProdutCard key={product.id} product={product} onAddToCard={onAddToCard}/>
+        return <ProductCard key={product.id} product={product} onAddToCard={onAddToCard}/>
       })}
       </div>
       <Link to="/products" className="btn">More Products</Link>
@@ -21,7 +21,7 @@ const Category = ({products, onAddToCard}) => {
 
 export default Category
 
-export function ProdutCard({product, onAddToCard}) {
+export function ProductCard({product, onAddToCard}) {
   const {name, img, id, price, inCard} = product
   return (
     <div className='swiper-slide box'>

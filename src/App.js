@@ -11,7 +11,7 @@ import About from './components/About/About'
 import Error from './components/Error/Error'
 
 function App() {
-  const [products, setProduts] = useState([])
+  const [products, setProducts] = useState([])
   const [cardProducts, setCardProducts] = useState([])
 
   const [total, setTotal] = useState(0)
@@ -31,22 +31,52 @@ function App() {
     const fetchData = async () => {
       const res = await fetch('http://localhost:5000/products')
       const data = await res.json()
-      setProduts(data)
+      setProducts(data)
       setRandomProducts(getRandomProducts(data))
     }
     fetchData()
   }, [])
 
   const handleAddToCard = (id) => {
+    // setNavToggle({
+    //   ...navToggle,
+    //   'cart-btn': true,
+    // })
     const updProducts = products.map((product) => {
       if (product.id === id) {
         const prod = { ...product, inCard: !product.inCard }
         updateData(id, prod)
+        if (filteredProducts.includes(product)) {
+          updateFilteredProduct(id, prod)
+        }
+        if (randomProducts.includes(product)) {
+          updateRandomProducts(id, prod)
+        }
         return prod
       }
       return product
     })
-    setProduts(updProducts)
+    setProducts(updProducts)
+  }
+
+  const updateFilteredProduct = (id, updPro) => {
+    const newFilteredProducts = filteredProducts.map((product) => {
+      if (product.id === id) {
+        return updPro
+      }
+      return product
+    })
+    setFilteredProducts(newFilteredProducts)
+  }
+
+  const updateRandomProducts = (id, updPro) => {
+    const newRandomProducts = randomProducts.map((product) => {
+      if (product.id === id) {
+        return updPro
+      }
+      return product
+    })
+    setRandomProducts(newRandomProducts)
   }
 
   const updateData = async (id, product) => {
@@ -66,7 +96,7 @@ function App() {
   })
 
   const handleToggle = (e) => {
-    const currentBtn = e.target.id
+    let currentBtn = e.target.id
     let newNavObj = {}
     if (navToggle[currentBtn]) {
       newNavObj = { ...navToggle, [currentBtn]: !navToggle[currentBtn] }
@@ -80,6 +110,16 @@ function App() {
     }
     setNavToggle(newNavObj)
   }
+
+  useEffect(() => {
+    console.log('use effect')
+    window.addEventListener('scroll', handleToggle)
+    // window.addEventListener('click', handleToggle)
+    return () => {
+      window.removeEventListener('scroll', handleToggle)
+      window.removeEventListener('click', handleToggle)
+    }
+  }, [])
 
   const handleTotal = (card) => {
     return card.reduce((total, product) => {
