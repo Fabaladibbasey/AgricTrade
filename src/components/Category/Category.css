@@ -27,6 +27,10 @@
   outline: var(--outline-hover);
 }
 
+.products .product-slider .box:hover img {
+  transform: scale(1.1);
+}
+
 .products .product-slider .box img {
   max-width: 100%;
   height: 20rem;

@@ -20,11 +20,13 @@ function App() {
     return products.filter((products) => products.inCard)
   }
 
+  const [numItems, setNumItems] = useState(0)
   useEffect(() => {
     const card = handleCardProducts()
     const total = handleTotal(card)
     setTotal(total)
     setCardProducts(card)
+    setNumItems(card.length)
   }, [products])
 
   useEffect(() => {
@@ -123,7 +125,7 @@ function App() {
     // window.addEventListener('click', handleToggle)
     return () => {
       window.removeEventListener('scroll', handleToggle)
-      window.removeEventListener('click', handleToggle)
+      // window.removeEventListener('click', handleToggle)
     }
   }, [])
 
@@ -183,6 +185,7 @@ function App() {
           cardProducts={cardProducts}
           onAddToCard={handleAddToCard}
           total={total}
+          numItems={numItems}
         />
         <Switch>
           <Route exact path='/'>

@@ -69,3 +69,26 @@
   text-align: center;
   margin: 1rem;
 }
+
+/* wave */
+/* .custom-shape-divider-top-1633216933 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: -2;
+}
+
+.custom-shape-divider-top-1633216933 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 59px;
+}
+
+.custom-shape-divider-top-1633216933 .shape-fill {
+  fill: #ffffff;
+} */
